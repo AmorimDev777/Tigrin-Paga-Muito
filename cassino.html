@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tigrin Deluxe</title>
+<link rel="shortcut icon" href="https://tigrinho.io/wp-content/uploads/2024/06/tigrinho-812x1024.png" type="image/x-icon">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Trebuchet MS', sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    flex-direction: column;
+    gap: 30px;
+
+    background: url(https://www.diariodopeixe.com.br/wp-content/uploads/2024/06/Melhores-estrategias-para-jogar-Fortune-Tiger.webp);
+    background-attachment: fixed;
+    background-repeat: none;
+    background-size: cover;
+    padding: 30px;
+}
+
+/* partículas */
+
+body::before{
+    content:"";
+    position:absolute;
+    width:200%;
+    height:200%;
+    background-image:
+    radial-gradient(gold 1px, transparent 1px);
+    background-size:35px 35px;
+    opacity:0.08;
+    animation:particles 35s linear infinite;
+}
+
+@keyframes particles{
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(-500px);
+    }
+}
+
+/* brilho atrás */
+
+.glow{
+    position:absolute;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle,gold,transparent 70%);
+    opacity:0.08;
+    filter:blur(40px);
+}
+
+/* CARD PRINCIPAL */
+
+.cassino{
+    position:relative;
+    z-index:2;
+
+    width:540px;
+
+    padding:30px;
+
+    border-radius:35px;
+
+    background:
+    linear-gradient(
+        180deg,
+        rgba(70,0,0,0.95),
+        rgba(25,0,0,0.96)
+    );
+
+    border:3px solid rgba(255,215,0,0.6);
+
+    box-shadow:
+    0 0 30px rgba(255,215,0,0.25),
+    inset 0 0 30px rgba(255,255,255,0.04);
+
+    backdrop-filter:blur(12px);
+
+    overflow:hidden;
+}
+.tigre{
+    position:fixed;
+    top:0;
+    z-index:-20;
+    animation: tigre .6s infinite linear;
+}
+
+/* reflexo */
+
+.cassino::before{
+    content:"";
+    position:absolute;
+    top:-100px;
+    left:-100px;
+    width:250px;
+    height:600px;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.1),
+        transparent
+    );
+
+    transform:rotate(25deg);
+
+    animation:shine 5s infinite;
+}
+@keyframes tigre {
+    from {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(70px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+@keyframes shine{
+    from{
+        left:-300px;
+    }
+    to{
+        left:700px;
+    }
+}
+
+.logo{
+    text-align:center;
+    font-size:42px;
+    font-weight:bold;
+    color:gold;
+    margin-bottom:5px;
+
+    text-shadow:
+    0 0 10px gold,
+    0 0 25px rgba(255,215,0,0.7);
+}
+
+.sub{
+    text-align:center;
+    color:#ffd66b;
+    margin-bottom:25px;
+    letter-spacing:3px;
+}
+
+.topo{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:25px;
+}
+
+.box-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex:1;
+    margin:0 5px;
+
+    background:
+    linear-gradient(180deg,#5e0000,#320000);
+
+    border:2px solid rgba(255,215,0,0.4);
+
+    border-radius:18px;
+
+    padding:14px;
+
+    text-align:center;
+
+    color:white;
+
+    box-shadow:
+    inset 0 0 10px rgba(255,255,255,0.05);
+}
+
+.valor{
+    color:gold;
+    font-size:24px;
+    font-weight:bold;
+}
+
+/* GRID */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+    margin-bottom:25px;
+}
+
+.slot{
+    position:relative;
+
+    height:115px;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(180deg,#890000,#3a0000);
+
+    border:3px solid rgba(255,215,0,0.65);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:58px;
+
+    overflow:hidden;
+
+    transition:0.2s;
+
+    box-shadow:
+    inset 0 0 15px rgba(255,255,255,0.08),
+    0 0 12px rgba(255,215,0,0.08);
+    img {
+    object-fit: contain;
+    height: 100%;
+}
+}
+
+/* brilho interno */
+
+.slot::before{
+    content:"";
+    position:absolute;
+    top:0;
+    width:100%;
+    height:50%;
+
+    background:
+    linear-gradient(
+        rgba(255,255,255,0.18),
+        transparent
+    );
+}
+
+/* ANIMAÇÃO */
+
+.spinning{
+    animation:spin 0.12s linear infinite;
+}
+
+/* vitória */
+
+.win{
+    animation:win 0.6s infinite alternate;
+
+    background:
+    linear-gradient(180deg,#ffd700,#ff9d00);
+
+    color:#3b0000;
+}
+
+@keyframes win{
+
+    from{
+        transform:scale(1);
+        box-shadow:
+        0 0 10px gold,
+        0 0 20px gold;
+    }
+
+    to{
+        transform:scale(1.12);
+        box-shadow:
+        0 0 25px gold,
+        0 0 50px gold;
+    }
+
+}
+
+/* botão */
+
+/* button{
+    width:100%;
+    padding:18px;
+
+    border:none;
+
+    border-radius:18px;
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    color:#3b0000;
+
+    background:
+    linear-gradient(
+        180deg,
+        #ffe66d,
+        #ffb700
+    );
+
+    box-shadow:
+    0 0 20px rgba(255,215,0,0.4);
+
+    transition:0.2s;
+} */
+
+
+.msg{
+    margin-top:20px;
+    text-align:center;
+    min-height:35px;
+    color:#ffe27a;
+    font-size:24px;
+    font-weight:bold;
+
+    text-shadow:0 0 10px rgba(255,215,0,0.4);
+}
+i {
+    color: rgb(255, 215, 0);
+}
+.valor {
+    color: rgb(54, 208, 255);
+}
+.aposta-box{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.bet-btn{
+
+    width:80px;
+    height:80px;
+
+    border:none;
+
+    border-radius:50rem;
+    background: transparent;
+
+    font-size:32px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    color:rgb(255, 215, 0);
+border: solid 4px rgb(255, 215, 0);
+    box-shadow:
+    0 0 10px rgba(255,215,0,0.4);
+
+    transition:0.2s;
+}
+
+.bet-btn:hover{
+    transform:scale(1.1);
+}
+
+.bet-btn:active{
+    transform:scale(0.95);
+}
+.slot img{
+    width:80%;
+    height:80%;
+    object-fit:contain;
+    pointer-events:none;
+}
+.btns {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    z-index: 30;
+}
+.btnG {
+    background: radial-gradient(rgb(81, 175, 81),green);
+    border: solid 5px rgb(255, 217, 0);
+    width: 5vw;
+    height: 5vw;
+    cursor: pointer;
+    border-radius: 50rem;
+    z-index: 90;
+}
+
+.btnG:hover{
+    transform:scale(1.03);
+    filter:brightness(1.1);
+}
+
+.btnG:active{
+    transform:scale(0.97);
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+<div class="glow"></div>
+
+<img src="https://portalcorreio.com.br/portalcorreio/storage/2023/08/c040639c8dc9522936f4a680b1888f1e.png" alt="" class="tigre">
+<div class="cassino">
+    <div class="logo">
+        TIGRIN PAGA MUITO
+    </div>
+
+    <div class="sub">
+        DELUXE EDITION
+    </div>
+
+    
+    <div class="grid" id="grid"></div>
+    
+<div class="topo">
+
+    <div class="box-info">
+        <i class="fa-solid fa-wallet"></i>
+
+        <div class="valor" id="saldo">
+            R$100,00
+        </div>
+    </div>
+
+    <div class="box-info">
+            <i class="fa-solid fa-coins"></i>
+
+            <div class="valor" id="aposta">
+                R$10,00
+            </div>
+        
+        
+    </div>
+    
+</div>
+
+<div class="msg" id="mensagem"></div>
+
+</div>
+
+<div class="btns">
+    <button class="bet-btn" onclick="diminuirAposta()">
+        -
+    </button>
+    <button onclick="girar()" class="btnG"></button>
+    <button class="bet-btn" onclick="aumentarAposta()">
+        +
+    </button>
+</div>
+
+</button>
+
+<script>
+
+const simbolos = [
+
+{
+    nome:"wild",
+    img:"https://tigre.br.com/wp-content/uploads/2026/02/fortunetiger-icons-1.webp",
+    wild:true
+}, 
+
+{
+    nome:"item4",
+    img:"https://tigre.br.com/wp-content/uploads/2026/02/fortunetiger-icons-5.webp"
+},
+
+{
+    nome:"item3",
+    img:"https://tigre.br.com/wp-content/uploads/2026/02/fortunetiger-icons-4.webp"
+},
+
+{
+    nome:"item2",
+    img:"https://tigre.br.com/wp-content/uploads/2026/02/fortunetiger-icons-3.webp"
+},
+
+{
+    nome:"item1",
+    img:"https://tigre.br.com/wp-content/uploads/2026/02/fortunetiger-icons-2.webp"
+}
+
+];
+
+const grid = document.getElementById("grid");
+let girando = false;
+let saldo = 100;
+let aposta = 10;
+
+let slots = [];
+
+/* criar slots */
+
+for(let i=0;i<9;i++){
+
+    const div = document.createElement("div");
+
+    div.classList.add("slot");
+
+    div.innerHTML = "❓";
+
+    grid.appendChild(div);
+
+    slots.push(div);
+
+}
+
+/* random */
+
+function simbolo(){
+
+    return simbolos[
+        Math.floor(Math.random()*simbolos.length)
+    ];
+
+}
+function atualizarAposta(){
+
+    document.getElementById("aposta").innerHTML =
+    `R$${aposta.toFixed(2).replace('.', ',')}`;
+
+}
+
+function aumentarAposta(){
+
+    aposta += 10;
+
+    atualizarAposta();
+
+}
+
+function diminuirAposta(){
+
+    if(aposta > 10){
+
+        aposta -= 10;
+
+        atualizarAposta();
+
+    }
+
+}
+
+/* saldo */
+
+function atualizarSaldo(){
+
+    document.getElementById("saldo").innerHTML = `R$${saldo.toFixed(2).replace('.', ',')}`;
+
+}
+
+/* limpar */
+
+function limpar(){
+
+    slots.forEach(slot=>{
+
+        slot.classList.remove("win");
+
+    });
+
+}
+
+/* GIRAR */
+
+function girar(){
+if(girando) return;
+    const mensagem =
+    document.getElementById("mensagem");
+
+    if(saldo < aposta){
+
+        mensagem.innerHTML =
+        "Saldo insuficiente";
+
+        return;
+    }
+
+    saldo -= aposta;
+
+    atualizarSaldo();
+
+    limpar();
+
+    let tempo = 30;
+
+slots.forEach(slot=>{
+
+    const s = simbolo();
+
+    slot.dataset.nome = s.nome;
+
+    slot.dataset.wild = s.wild || false;
+
+    slot.innerHTML =
+    `<img src="${s.img}" class="slot-img">`;
+
+});
+
+const animacao = setInterval(()=>{
+
+    slots.forEach(slot=>{
+
+        const s = simbolo();
+
+        slot.dataset.nome = s.nome;
+
+        slot.dataset.wild = s.wild || false;
+
+        slot.innerHTML =
+        `<img src="${s.img}" class="slot-img">`;
+
+    });
+
+    tempo--;
+
+    if(tempo <= 0){
+
+        clearInterval(animacao);
+
+        slots.forEach(slot=>{
+
+            slot.classList.remove("spinning");
+
+        });
+
+        verificar();
+girando = false;
+    }
+
+},90);
+
+}
+
+/* verificar */
+
+function verificar(){
+
+    const mensagem =
+    document.getElementById("mensagem");
+
+    const linhas = [
+
+        [0,1,2],
+        [3,4,5],
+        [6,7,8],
+
+        [0,4,8],
+        [2,4,6]
+
+    ];
+
+    let ganhou = false;
+
+    let premio = 0;
+
+    linhas.forEach(linha=>{
+
+        const [a,b,c] = linha;
+
+        const slotsLinha = [
+            slots[a],
+            slots[b],
+            slots[c]
+        ];
+
+        const nomes = slotsLinha.map(
+            s => s.dataset.nome
+        );
+
+        const semWild = nomes.filter(
+            n => n !== "wild"
+        );
+
+        if(semWild.length === 0){
+
+            ganhou = true;
+
+            premio += aposta * 10;
+
+            slotsLinha.forEach(slot=>{
+                slot.classList.add("win");
+            });
+
+            return;
+        }
+
+        const referencia = semWild[0];
+
+        const venceu = nomes.every(nome => {
+
+            return nome === referencia ||
+                   nome === "wild";
+
+        });
+
+        if(venceu){
+
+            ganhou = true;
+
+            premio += aposta * 5;
+
+            slotsLinha.forEach(slot=>{
+                slot.classList.add("win");
+            });
+
+        }
+
+    });
+
+    if(ganhou){
+
+        saldo += premio;
+
+        mensagem.innerHTML =
+        `🎉 JACKPOT +R$${premio.toFixed(2)}`;
+
+    }else{
+
+        mensagem.innerHTML =
+        "😢 Tente novamente";
+
+    }
+
+    atualizarSaldo();
+
+}
+
+</script>
+
+</body>
+</html>
